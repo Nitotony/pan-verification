@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit=""></form>
+    <label for="pan" id="panNumber">PAN Card:</label>
+    <input type="text" name="pan">
+   <span></span>
+   <button id="btn">Submit</button>
+
+
+
+    <script>
+        
+
+const btn = document.querySelector("#btn");
+
+btn.addEventListener("click", (e) => {
+  const input = document.querySelector("#panNumber");
+  const regex = /^[A-Z]{5}\d{4}[A-Z]$/;
+
+  if (regex.test(input.value)) {
+    document.getElementsByTagName('span')[0].innerHTML("invalid Pan number");
+  } else {
+    document.getElementsByTagName('span')[0].innerHTML("invalid Pan number");
+  }
+});
+
+    </script>
+    
+</body>
+</html>
