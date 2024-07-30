@@ -4,33 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+        }
+        .container1{
+            display: flex;
+            flex-direction: column;
+            width: 600px;
+            margin: 100px;
+        }
+        input{
+            margin-bottom: 15px;
+            width: 300px;
+        }
+        button{
+            margin-bottom: 15px;
+            width: 200px;
+            margin: 10px ;
+        }
+        .container2{
+            display: flex;
+        }
+    </style>
 </head>
 <body>
-    <form action="" onsubmit=""></form>
-    <label for="pan" id="panNumber">PAN Card:</label>
-    <input type="text" name="pan">
-   <span></span>
-   <button id="btn">Submit</button>
+    <div class="container1">
+        <div class="container2">
+            <label>PAN card :</label>
+            <input type="text" placeholder="PAN NO" id="panNumber">
+            <span id="flag"></span>
+        </div>
 
-
-
+        <button type="submit" id="btn">submit</button>
+    </div>
     <script>
-        
+        const btn = document.querySelector("#btn");
+        const flag = document.querySelector("#flag");
 
-const btn = document.querySelector("#btn");
+        btn.addEventListener("click", (e) => {
+            const input = document.querySelector("#panNumber");
+            const regex = /^[A-Z]{5}\d{4}[A-Z]$/;
 
-btn.addEventListener("click", (e) => {
-  const input = document.querySelector("#panNumber");
-  const regex = /^[A-Z]{5}\d{4}[A-Z]$/;
-
-  if (regex.test(input.value)) {
-    document.getElementsByTagName('span')[0].innerHTML("invalid Pan number");
-  } else {
-    document.getElementsByTagName('span')[0].innerHTML("invalid Pan number");
-  }
-});
-
+            if (regex.test(input.value)) {
+                flag.textContent = "Valid PAN Number";
+                flag.style.color = 'green';
+            } else {
+                flag.textContent = "Invalid Pan Number";
+                flag.style.color = 'red';
+            }
+        });
     </script>
-    
 </body>
 </html>
